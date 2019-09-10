@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Subscription</title>
+    <script language="JavaScript">
+        function saveData(id) {
+            if (document.getElementById(id).checked) {
+                localStorage.setItem(id, 'true');
+            } else {
+                localStorage.setItem(id, 'false');
+            }
+        };
+        function setData() {
+            document.getElementById("food").checked = (localStorage.getItem('food') === 'true');
+            document.getElementById("technology").checked = (localStorage.getItem('technology') === 'true');
+            document.getElementById("health").checked = (localStorage.getItem('health') === 'true');
+             document.getElementById("music").checked = (localStorage.getItem('music') === 'true');
+            document.getElementById("travel").checked = (localStorage.getItem('travel') === 'true');
+        };
+        function subscribe() {
+            alert('You are now subscribed to these blogs');
+        }
+    </script>
+</head>
+
+<body onload="setData()">
+    <h3 align="center">Subscribe to blogs</h3>
+    <form>
+    <table align="center" cellpadding="10">
+        <tr>
+            <td>
+            <input id="technology" type="checkbox" name="technology" value="technology" onclick="saveData('technology')" />
+                TECHNOLOGY<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input id="food" type="checkbox" name="food" value="food" onclick="saveData('food')" />
+                FOOD<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="health" type="checkbox" name="health" value="health" onclick="saveData('health')" />
+                HEALTH<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="music" type="checkbox" name="music" value="music" onclick="saveData('music')" />
+                MUSIC<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="travel" type="checkbox" name="travel" value="travel" onclick="saveData('travel')" />
+                TRAVEL<br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="SUBSCRIBE" name="subscribe" formaction="javascript:subscribe()" />
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Registration Form</title>
+    <script language="JavaScript">
+        function submit() {
+            sessionStorage.setItem('mobile', document.getElementById("mobile").value);
+            sessionStorage.setItem('address', document.getElementById("address").value);
+            alert('Registration succesfull');
+            // Save data permanently to a DB
+        };
+        function setData() {
+            document.getElementById("mobile").value = sessionStorage.getItem('mobile');
+            document.getElementById("address").value = sessionStorage.getItem('address');
+        };
+    </script>
+</head>
+
+<body onload="setData()">
+    <h3 align="center">REGISTRATION FORM</h3>
+    <form>
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>MOBILE NUMBER</td>
+                <td>
+                    <input id="mobile" type="text" name="mobile" maxlength="10" />
+                </td>
+            </tr>
+            <tr>
+                <td>ADDRESS <br /><br /><br /></td>
+                <td><textarea id="address" name="address" rows="4" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Back" name="back" formaction="RegistrationPage1.html" />
+                </td>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit" name="save" formaction="javascript:submit()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html> 

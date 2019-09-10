@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Book Table</title>
+    <script src="src/RefAssn1.js"></script>
+</head>
+<body>
+    <h3 align="center">Book Table</h3>
+    <form id="User">
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>NAME</td>
+                <td><input id="name" type="text" name="name" required autofocus} />
+                </td>
+            </tr>
+            <tr>
+                <td>TABLE NUMBER (1-5)</td>
+                <td><input id="tableNumber" type="number" name="tableNumber" required min=1 max=3/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input id="submit" type="submit" value="submit" name="submit" formaction="javascript:handleSaveOnBookTable()"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input id="back" type="button" value="back" name="back" onclick="location.href = 'index.html'" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

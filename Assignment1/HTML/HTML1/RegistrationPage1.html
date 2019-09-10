@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Registration Form</title>
+    <script language="JavaScript">
+        function saveData() {
+            sessionStorage.setItem('firstname', document.getElementById("firstname").value);
+            sessionStorage.setItem('lastname', document.getElementById("lastname").value);
+            sessionStorage.setItem('dob', document.getElementById("dob").value);
+            sessionStorage.setItem('email', document.getElementById("email").value);
+            sessionStorage.setItem('password', document.getElementById("password").value);
+            alert('Saved to draft');
+        };
+        function setData() {
+            document.getElementById("firstname").value = sessionStorage.getItem('firstname');  
+            document.getElementById("lastname").value = sessionStorage.getItem('lastname');
+            document.getElementById("dob").value = sessionStorage.getItem('dob');
+            document.getElementById("email").value = sessionStorage.getItem('email'); 
+            document.getElementById("password").value = sessionStorage.getItem('password');
+        };
+    </script>
+</head>
+
+<body onload="setData()">
+    <h3 align="center">REGISTRATION FORM</h3>
+    <form>
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>FIRST NAME</td>
+                <td><input id="firstname" type="text" name="firstname" required autofocus pattern="[A-Z][a-z]{1,50}"}/>
+                </td>
+            </tr>
+            <tr>
+                <td>LAST NAME</td>
+                <td><input id="lastname" type="text" name="lastname" required pattern="[A-Z][a-z]{1,50}" />
+                </td>
+            </tr>
+            <tr>
+                <td>DATE OF BIRTH</td>
+                <td><input id="dob" type="date" name="dob" />
+                </td>
+            </tr>
+            <tr>
+                <td>EMAIL ID</td>
+                <td><input id="email" type="email" name="emailId" required /></td>
+            </tr>
+            <tr>
+                <td>PASSWORD</td>
+                <td><input id="password" type="password" name="password" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Save" name="save" formaction="javascript:saveData()" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Next" name="next" formaction="RegistrationPage2.html" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <title> 
+       HTML | DOM Window localStorage Properties 
+    </title> 
+  
+    <script> 
+        //saving data locally 
+        function save() { 
+            var fieldValue = 
+                document.getElementById('textfield').value; 
+  
+            sessionStorage.setItem('text', fieldValue);
+        } 
+  
+        //reading data 
+        function get() { 
+            var storedValue = sessionStorage.getItem('text'); 
+            if (storedValue) { 
+  
+                document.getElementById( 
+                    'textfield').value = storedValue; 
+            } 
+        } 
+  
+        //removing stored data 
+        function remove() { 
+            document.getElementById( 
+                'textfield').value = ''; 
+  
+            sessionStorage.removeItem('text'); 
+        } 
+    </script> 
+</head> 
+  
+<body onload="get()"> 
+    <p1> 
+      Type something in the text field and It 
+      will Get stored locally by Browser 
+    </p1> 
+    <input type="text" id="textfield" /> 
+  
+    <input type="button" value="save" onclick="save()" /> 
+  
+    <input type="button" value="clear" onclick="remove()" /> 
+  
+    <p2> 
+      when you reopen or reload this page,your text 
+      is still there. 
+    </p2> 
+    <p3> 
+        <br>click on clear to remove it.</p3> 
+</body> 
+  
+</html> 

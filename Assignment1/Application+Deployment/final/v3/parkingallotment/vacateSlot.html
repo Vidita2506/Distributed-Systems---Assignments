@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vacate Table</title>
+    <script src="src/RefAssn1.js"></script>
+</head>
+
+<body>
+    <h3 align="center">Vacate Table</h3>
+    <form id="Slot">
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>SLOT NUMBER</td>
+                <td><input id="slotNumber" type="text" name="slotNumber" required autofocus} />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input id="vacate" type="submit" value="vacate" name="vacate" formaction="javascript:handleSaveOnVacateSlot()"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input id="back" type="button" value="back" name="back" onclick="location.href = 'index.html'" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

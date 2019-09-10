@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Location Tracker</title>
+<script>
+    var id;
+    let getLocation = () => {
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayPos, handleErr);
+        } else{
+            alert("Browser does not support HTML5 Geolocation");
+        }
+    }
+    let trackLocation = () => {
+        if (navigator.geolocation) {
+           id = navigator.geolocation.watchPosition(displayPos, handleErr);
+        } else {
+            alert("Browser does not support HTML5 Geolocation");
+        }
+    }
+    let clearWatch = () => {
+        navigator.geolocation.clearWatch(id);
+    }
+    let displayPos = (position) => {
+        document.getElementById('latitude').value = position.coords.latitude;
+        document.getElementById('longitude').value = position.coords.longitude;
+    }
+    function handleErr(error) {
+        alert(`Error occured: ${error.message}`);  
+    }
+</script>
+</head>
+
+<body>
+    <h3 align="center">Location finder & Tracker</h3>
+    <form>
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>
+                    <input type="submit" value="GET CURRENT POSITION" formaction="javascript:getLocation()" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="TRACK POSITION" formaction="javascript:trackLocation()" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="STOP TRACKING" formaction="javascript:clearWatch()" />
+                </td>
+            </tr>
+            <tr>
+                <td>LATITUDE</td>
+                <td><input id="latitude" type="text" name="latitude" />
+                </td>
+                <td>LONGITUDE</td>
+                <td><input id="longitude" type="text" name="longitude" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
