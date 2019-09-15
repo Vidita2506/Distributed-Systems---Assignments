@@ -47,30 +47,31 @@ app.use(function(req, res, next) {
 ]
 
 //Route to handle Post Request Call
-app.post('/login',function(req,res){
-    
-    // Object.keys(req.body).forEach(function(key){
-    //     req.body = JSON.parse(key);
-    // });
-    // var username = req.body.username;
-    // var password = req.body.password;
-    console.log("Inside Login Post Request");
-    //console.log("Req Body : ", username + "password : ",password);
-    console.log("Req Body : ",req.body);
-    Users.filter(function(user){
-        if(user.username === req.body.username && user.password === req.body.password){
-            res.cookie('cookie',"admin",{maxAge: 900000, httpOnly: false, path : '/'});
-            req.session.user = user;
-            res.writeHead(200,{
-                'Content-Type' : 'text/plain'
-            })
-            res.end("Successful Login");
+app.post('/login', [
+    check('username', 'Enter username & password').not().isEmpty(),
+    check('password', 'Enter username & password').not().isEmpty()
+], function (req, res) {
+    let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            let errorMsg = errors.array()[0].msg;
+            res.status(401).send(errorMsg);
         } else {
-            res.status(401).send('Invalid login credentials');
+            console.log("Inside Login Post Request");
+            //console.log("Req Body : ", username + "password : ",password);
+            console.log("Req Body : ", req.body);
+            Users.filter(function (user) {
+                if (user.username === req.body.username && user.password === req.body.password) {
+                    res.cookie('cookie', "admin", { maxAge: 900000, httpOnly: false, path: '/' });
+                    req.session.user = user;
+                    res.writeHead(200, {
+                        'Content-Type': 'text/plain'
+                    })
+                    res.end("Successful Login");
+                } else {
+                    res.status(401).send('Invalid login credentials');
+                }
+            })
         }
-    })
-
-    
 });
 
 //Route to get All Books when user visits the Home Page

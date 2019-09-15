@@ -19,10 +19,11 @@
   border: 2px solid black;
 }
 
-.info {
-    color: #00529B;
-    background-color: #BDE5F8;
+.error_create_delete {
+    background-color: #f44336;
+    color: white;
     margin-left: 150px;
+    margin-right: 950px;
 }
 
 .error {

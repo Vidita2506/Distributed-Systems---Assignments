@@ -91,10 +91,10 @@ class Login extends Component{
                         </div>
                         
                             <div class="form-group">
-                                <input onChange = {this.usernameChangeHandler} type="text" class="form-control" name="username" placeholder="Username"/>
+                                <input onChange = {this.usernameChangeHandler} type="text" class="form-control" name="username" placeholder="Username" required/>
                             </div>
                             <div class="form-group">
-                                <input onChange = {this.passwordChangeHandler} type="password" class="form-control" name="password" placeholder="Password"/>
+                                <input onChange = {this.passwordChangeHandler} type="password" class="form-control" name="password" placeholder="Password" required/>
                             </div>
                             <button onClick = {this.submitLogin} class="btn btn-primary">Login</button>                 
                     </div>

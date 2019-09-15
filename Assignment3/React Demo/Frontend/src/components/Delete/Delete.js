@@ -8,7 +8,8 @@ class Delete extends Component{
     constructor() {
         super();
         this.state = {
-            msg : ""
+            msg: "",
+            redirect: ""
         }
         this.handleDelete = this.handleDelete.bind(this);
     }
@@ -24,10 +25,10 @@ class Delete extends Component{
         axios.post('http://localhost:3001/delete', data)
             .then(response => {
                 this.setState({
-                    msg: response.data
+                    msg: response.data,
+                    redirect: <Redirect to="/home" />
                 });
             }).catch(error => {
-                console.log(error);
                 this.setState({
                     msg: error.response.data
                 })
@@ -35,17 +36,16 @@ class Delete extends Component{
     }
 
     render = () => {
-        //if not logged in go to login page
         let msg = this.state.msg;
-        let redirectVar = null;
         if (!cookie.load('cookie')) {
-            redirectVar = <Redirect to="/login" />
+            this.state.redirect = <Redirect to="/login" />
         }
+        let redirectVar = this.state.redirect;
         return (
             <div>
-            <div class="info">{msg}</div>
+             {redirectVar}
+                <div class="error_create_delete">{msg}</div>
             <div style={{ marginTop: "40px" }} class="container">
-                {redirectVar}
                 <form onSubmit={this.handleDelete}>
                     <div style={{width: "50%",float: "left"}} class="form-group">
                         <input  type="text" class="form-control" name="BookID" placeholder="Search a Book by Book ID"/>

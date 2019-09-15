@@ -7,7 +7,8 @@ class Create extends Component{
     constructor() {
         super();
         this.state = {
-            msg: ""
+            msg: "",
+            redirect: ""
         }
         this.handleCreate = this.handleCreate.bind(this);
     }
@@ -26,7 +27,8 @@ class Create extends Component{
         axios.post('http://localhost:3001/create', data)
             .then(response => {
                 this.setState({
-                    msg: response.data
+                    msg: response.data,
+                    redirect: <Redirect to="/home" />
                 });
             }).catch(error => {
                 this.setState({
@@ -36,17 +38,16 @@ class Create extends Component{
     }
 
     render = () => {
-        //if not logged in go to login page
-        let redirectVar = null;
         let msg = this.state.msg;
         if (!cookie.load('cookie')) {
-            redirectVar = <Redirect to="/login" />
+            this.state.redirect = <Redirect to="/login" />
         }
+        let redirectVar = this.state.redirect;
         return (
             <div>
                 {redirectVar}
                 <br />
-                <div class="info">{msg}</div>
+                <div class="error_create_delete">{msg}</div>
                 <div style={{ marginTop: "30px" }} class="container">
                         <form onSubmit={this.handleCreate}>
                         <div style={{width: '30%'}} class="form-group">
