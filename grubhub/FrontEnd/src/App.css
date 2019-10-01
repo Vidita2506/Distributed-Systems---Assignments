@@ -1,0 +1,115 @@
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+
+.navbar-custom {
+    background-color: white;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: red;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgb(158, 42, 42);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: rgb(158, 42, 42);
+}
+
+.info {
+    background-color: gray;
+    color: white;
+    text-align:center;
+    margin-left: 450px;
+    margin-right: 450px;
+}
+
+.error {
+    background-color: rgb(199, 73, 73);
+    color: white;
+    text-align:center;
+    margin-left: 450px;
+    margin-right: 450px;
+}
+
+.orderplaced {
+    background-color: rgb(156, 201, 156);
+    color: white;
+    text-align:center;
+    margin-left: 10px;
+    margin-right: 300px;
+}
+
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 100px auto 50px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+  border: 2px solid black;
+}
+
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 85%;
+  position: fixed;
+  margin: 4px 4px;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: white;
+}
+
+.btn {
+  outline: none;
+  padding: 8px 14px;
+  background-color: rgb(185, 185, 196);
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btnsearch {
+  outline: none;
+  padding: 8px 14px;
+  background-color: rgb(67, 124, 230);
+  color: white;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.search {
+  outline: none;
+  padding: 8px 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.home {
+    background-image: url('images/homepage.jpg');
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+}
+
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
